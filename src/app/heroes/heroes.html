@@ -1,0 +1,34 @@
+<h1 class="my-heroes-title">My Heroes</h1>
+
+<div class="add-section">
+  <label for="hero-name">Hero name:</label>
+
+  <input
+    id="hero-name"
+    [(ngModel)]="newHeroName"
+    placeholder="Hero name">
+
+  <button (click)="addHero()">
+    Add Hero
+  </button>
+</div>
+
+@for (hero of heroes; track hero.id) {
+  <div class="hero-row">
+
+    <span class="hero-id">
+      {{ hero.id }}
+    </span>
+
+    <span class="hero-name">
+      {{ hero.name }}
+    </span>
+
+    <button
+      class="delete-btn"
+      (click)="deleteHero(hero.id)">
+      x
+    </button>
+
+  </div>
+}
